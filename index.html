@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <meta name="description" content="Searchable SSH, Docker, Compose, and Cloudflare Tunnel command helper.">
+    <title>SSH Workbench</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/icon.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar" aria-labelledby="app-title">
+        <div>
+          <p class="eyebrow">Daedalus SSH helper</p>
+          <h1 id="app-title">SSH Workbench</h1>
+        </div>
+        <button class="icon-button" id="installButton" type="button" title="Install app" hidden>
+          <span aria-hidden="true">+</span>
+          <span class="sr-only">Install app</span>
+        </button>
+      </section>
+
+      <section class="search-panel" aria-label="Command search">
+        <label for="searchInput">Search by problem, service, or command</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Try 502, logs, restart, disk, tunnel">
+          <button id="clearButton" type="button" title="Clear search">Clear</button>
+        </div>
+      </section>
+
+      <section class="settings" aria-label="Command defaults">
+        <label>
+          Host
+          <input id="hostInput" type="text" spellcheck="false" value="martin@daedalus-runner">
+        </label>
+        <label>
+          App container
+          <input id="containerInput" type="text" spellcheck="false" value="daedalus-app">
+        </label>
+        <label>
+          Compose folder
+          <input id="folderInput" type="text" spellcheck="false" value="~/daedalus-services">
+        </label>
+        <label>
+          Local port
+          <input id="portInput" type="text" inputmode="numeric" spellcheck="false" value="3000">
+        </label>
+      </section>
+
+      <section class="quick-strip" aria-label="Quick workflows">
+        <button class="chip" type="button" data-query="panic">Panic sheet</button>
+        <button class="chip" type="button" data-query="502">502 check</button>
+        <button class="chip" type="button" data-query="logs">Logs</button>
+        <button class="chip" type="button" data-query="restart">Restart</button>
+        <button class="chip" type="button" data-query="disk">Disk</button>
+      </section>
+
+      <section class="results-head" aria-live="polite">
+        <h2 id="resultCount">Commands</h2>
+        <button id="copyVisibleButton" type="button">Copy visible</button>
+      </section>
+
+      <section id="results" class="results" aria-label="Matching commands"></section>
+    </main>
+
+    <template id="commandTemplate">
+      <article class="command-card">
+        <div class="command-meta">
+          <span class="category"></span>
+          <span class="when"></span>
+        </div>
+        <h3></h3>
+        <p class="description"></p>
+        <pre><code></code></pre>
+        <div class="card-actions">
+          <button class="copy-button" type="button">Copy</button>
+        </div>
+      </article>
+    </template>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

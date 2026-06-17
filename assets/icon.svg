@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SSH Workbench icon">
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <path d="M88 145c0-23 19-42 42-42h252c23 0 42 19 42 42v222c0 23-19 42-42 42H130c-23 0-42-19-42-42V145Z" fill="#171b24" stroke="#30384a" stroke-width="18"/>
+  <path d="M142 178h228" stroke="#58d68d" stroke-width="24" stroke-linecap="round"/>
+  <path d="m151 246 54 45-54 45" fill="none" stroke="#ffd166" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M234 342h116" stroke="#f3f6fb" stroke-width="28" stroke-linecap="round"/>
+</svg>
